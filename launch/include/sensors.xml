@@ -11,8 +11,8 @@
 	</include>
 
 	<!--sensor asus depth camera-->
-	<include file="$(find xbot_slam)/launch/include/sensor_asus.xml">
-	</include>
+	<!-- <include file="$(find xbot_slam)/launch/include/sensor_asus.xml">
+	</include> -->
 
 
 </launch>
