@@ -1,0 +1,15 @@
+<launch>
+	<!-- xbot base controller -->
+	<include file="$(find xbot_slam)/launch/include/xbot_bringup.xml">
+	</include>
+
+	<!-- sensors -->
+	<include file="$(find xbot_slam)/launch/include/sensors.xml">
+
+	</include>
+
+	<!--  **************** Visualisation ****************  -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find xbot_slam)/rviz/xbot_slam.rviz"/>
+
+
+</launch>
