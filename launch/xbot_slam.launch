@@ -1,9 +1,14 @@
 <launch>
-	<arg name="map_file"       default=" $(find xbot_cruise)/map/001.yaml"/>
-	<arg name="initial_pose_x" default="2.0"/>
-	<arg name="initial_pose_y" default="2.0"/>
-	<arg name="initial_pose_a" default="0.0"/>
+	<!-- params configuration -->
 	<param name="/use_sim_time" value="true"/>
+	<!-- map_server params -->
+	<arg name="map_file"           default=" $(find xbot_cruise)/map/001.yaml"/>
+	<!-- amcl params -->
+	<arg name="initial_pose_x"     default="3.0"/>
+	<arg name="initial_pose_y"     default="3.0"/>
+	<arg name="initial_pose_a"     default="0.0"/>
+	<arg name="amcl_scan_topic"    default="scan"/>
+	<arg name="amcl_use_map_topic" default="true"/>
 	<!-- xbot base controller -->
 	<include file="$(find xbot_slam)/launch/include/xbot_bringup.xml">
 	</include>
@@ -19,8 +24,8 @@
 	<include file="$(find xbot_slam)/launch/include/move_base.launch.xml"/>
 	<!-- AMCL -->
 	<include file="$(find xbot_slam)/launch/include/amcl.launch.xml">
-		<arg name="scan_topic" value="scan"/>
-		<arg name="use_map_topic" value="true"/>
+		<arg name="scan_topic" value="$(arg amcl_scan_topic)"/>
+		<arg name="use_map_topic" value="$(arg amcl_use_map_topic)"/>
 		<arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
 		<arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
 		<arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
@@ -29,7 +34,8 @@
 	<node name="pub_goal" pkg="xbot_slam" type="pub_clicked_goal.py"/>
 
 	<!--  **************** Visualisation ****************  -->
-	<include file="$(find xbot_control_pannel)/launch/control_pannel.launch"/>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find xbot_slam)/rviz/xbot_slam.rviz" />
+
 
 
 </launch>
