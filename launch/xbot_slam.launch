@@ -11,7 +11,7 @@
 	<arg name="amcl_use_map_topic" default="true"/>
 
 	<!-- xbot base controller -->
-	<include file="$(find xbot_bringup)/launch/xbot_rplidar_asus.launch">
+	<include file="$(find xbot_bringup)/launch/xbot_rplidar.launch">
 	</include>
 
 	<!--  ****** Maps *****  -->
