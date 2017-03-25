@@ -28,7 +28,7 @@
 	</include>
 
 	<!--  ************** Navigation  ***************  -->
-	<include file="$(find xbot_slam)/launch/include/move_base.launch.xml"/>
+	<!-- <include file="$(find xbot_slam)/launch/include/move_base.launch.xml"/> -->
 
 
 
