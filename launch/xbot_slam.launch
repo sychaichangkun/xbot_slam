@@ -19,15 +19,15 @@
 		<param name="frame_id" value="/map"/>
 	</node>
 	<!--  ************** Navigation  ***************  -->
-	<!-- <include file="$(find xbot_slam)/launch/include/move_base.launch.xml"/> -->
+	<include file="$(find xbot_slam)/launch/include/move_base.launch.xml"/>
 	<!-- AMCL -->
-	<include file="$(find xbot_slam)/launch/include/amcl.launch.xml">
+	<!-- <include file="$(find xbot_slam)/launch/include/amcl.launch.xml">
 		<arg name="scan_topic" value="$(arg amcl_scan_topic)"/>
 		<arg name="use_map_topic" value="$(arg amcl_use_map_topic)"/>
 		<arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
 		<arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
 		<arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
-	</include>
+	</include> -->
 	<!-- give move base a goal -->
 	<!-- <node name="pub_goal" pkg="xbot_slam" type="pub_clicked_goal.py"/> -->
 
