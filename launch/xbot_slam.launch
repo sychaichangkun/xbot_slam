@@ -28,12 +28,12 @@
 	</include>
 
 	<!--  ************** Navigation  ***************  -->
-	<!-- <include file="$(find xbot_slam)/launch/include/move_base.launch.xml"/> -->
+	<include file="$(find xbot_slam)/launch/include/move_base.launch.xml"/>
 
 
 
 	<!-- give move base a goal -->
-	<!-- <node name="pub_goal" pkg="xbot_slam" type="pub_clicked_goal.py"/> -->
+	<node name="pub_goal" pkg="xbot_slam" type="pub_clicked_goal.py"/>
 
 
 
