@@ -27,6 +27,10 @@
 		<arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
 	</include>
 
+	<node name="gmapping" pkg="gmapping" type="slam_gmapping">
+		<arg name="scan" value="/scan"/>
+	</node>
+
 	<!--  ************** Navigation  ***************  -->
 	<include file="$(find xbot_slam)/launch/include/move_base.launch.xml"/>
 
