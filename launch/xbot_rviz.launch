@@ -1,4 +1,16 @@
 <launch>
+	<node name="gmapping" pkg="gmapping" type="slam_gmapping">
+		<param name="scan" value="/scan"/>
+		<param name="map_update_interval" value="1.0"/>
+	</node>
+
+	<!--  ************** Navigation  ***************  -->
+	<include file="$(find xbot_slam)/launch/include/move_base.launch.xml"/>
+
+
+
+	<!-- give move base a goal -->
+	<node name="pub_goal" pkg="xbot_slam" type="pub_clicked_goal.py"/>
 	<!--  **************** Visualisation ****************  -->
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find xbot_slam)/rviz/xbot_slam.rviz" />
 
