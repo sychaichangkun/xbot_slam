@@ -19,13 +19,13 @@
 		<param name="frame_id" value="/map"/>
 	</node> -->
 	<!-- AMCL -->
-	<include file="$(find xbot_slam)/launch/include/amcl.launch.xml">
+	<!-- <include file="$(find xbot_slam)/launch/include/amcl.launch.xml">
 		<arg name="scan_topic" value="$(arg amcl_scan_topic)"/>
 		<arg name="use_map_topic" value="$(arg amcl_use_map_topic)"/>
 		<arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
 		<arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
 		<arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
-	</include>
+	</include> -->
 
 	<node name="gmapping" pkg="gmapping" type="slam_gmapping">
 		<param name="scan" value="/scan"/>
