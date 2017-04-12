@@ -15,9 +15,9 @@
 	</include>
 
 	<!--  ****** Maps *****  -->
-	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
+	<!-- <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
 		<param name="frame_id" value="/map"/>
-	</node>
+	</node> -->
 	<!-- AMCL -->
 	<include file="$(find xbot_slam)/launch/include/amcl.launch.xml">
 		<arg name="scan_topic" value="$(arg amcl_scan_topic)"/>
