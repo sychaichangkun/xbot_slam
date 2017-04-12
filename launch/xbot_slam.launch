@@ -29,6 +29,7 @@
 
 	<node name="gmapping" pkg="gmapping" type="slam_gmapping">
 		<param name="scan" value="/scan"/>
+		<param name="map_update_interval" value="1.0"/>
 	</node>
 
 	<!--  ************** Navigation  ***************  -->
