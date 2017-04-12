@@ -28,7 +28,7 @@
 	</include>
 
 	<node name="gmapping" pkg="gmapping" type="slam_gmapping">
-		<arg name="scan" value="/scan"/>
+		<param name="scan" value="/scan"/>
 	</node>
 
 	<!--  ************** Navigation  ***************  -->
