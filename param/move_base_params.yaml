@@ -19,7 +19,7 @@ base_local_planner: "dwa_local_planner/DWAPlannerROS" #"base_local_planner/Traje
 
 base_global_planner: "navfn/NavfnROS" #alternatives: global_planner/GlobalPlanner, carrot_planner/CarrotPlanner
 
-recovery_behavior_enabled: false
+recovery_behavior_enabled: true
 
 
 #We plan to integrate recovery behaviors for turtlebot but currently those belong to gopher and still have to be adapted.

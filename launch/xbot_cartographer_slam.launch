@@ -1,0 +1,39 @@
+<launch>
+  <!-- params configuration -->
+  <param name="/use_sim_time" value="false"/>
+
+
+  <!-- xbot base controller -->
+   <!--<include file="$(find xbot_bringup)/launch/xbot_rplidar.launch">
+  </include> -->-->
+
+  <node name="cartographer_node" pkg="cartographer_ros"
+        type="cartographer_node" args="
+            -configuration_directory
+                $(find cartographer_ros)/configuration_files
+            -configuration_basename pr2.lua"
+        output="screen">
+<!--      <remap from="scan" to="/base_scan" />-->
+  </node>
+
+  <node name="tf_remove_frames" pkg="cartographer_ros"
+      type="tf_remove_frames.py">
+<!--    <remap from="tf_out" to="/tf" />-->
+    <rosparam param="remove_frames">
+      - map
+      - odom_combined
+    </rosparam>
+  </node>
+  <!--  ************** Navigation  ***************  -->
+  <include file="$(find xbot_slam)/launch/include/move_base.launch.xml"/>
+
+  <!-- explore frontiers -->
+  <!--<include file="$(find frontier_exploration)/launch/global_map.launch">
+
+  </include>-->
+  <!--  **************** Visualisation ****************  -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find xbot_slam)/rviz/xbot_slam.rviz" />
+
+
+
+</launch>

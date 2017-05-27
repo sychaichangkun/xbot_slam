@@ -39,29 +39,33 @@
   </node>
 
 
-	<!-- amcl params -->
-	<arg name="amcl_scan_topic"    default="scan"/>
-	<arg name="amcl_use_map_topic" default="true"/>
+  <!-- amcl params -->
+  <arg name="amcl_scan_topic"    default="scan"/>
+  <arg name="amcl_use_map_topic" default="true"/>
 
-	<!--  ****** Maps *****  -->
-	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
-		<param name="frame_id" value="/map"/>
-	</node>
-	<!-- AMCL -->
-	<include file="$(find xbot_slam)/launch/include/amcl.launch.xml">
-		<arg name="scan_topic" value="$(arg amcl_scan_topic)"/>
-		<arg name="use_map_topic" value="$(arg amcl_use_map_topic)"/>
-		<arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
-		<arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
-		<arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
-	</include>
+  <!--  ****** Maps *****  -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
+          <param name="frame_id" value="/map"/>
+  </node>
+  <!-- AMCL -->
+  <include file="$(find xbot_slam)/launch/include/amcl.launch.xml">
+          <arg name="scan_topic" value="$(arg amcl_scan_topic)"/>
+          <arg name="use_map_topic" value="$(arg amcl_use_map_topic)"/>
+          <arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
+          <arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
+          <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
+  </include>
 
-	<!--  ************** Navigation  ***************  -->
-	<include file="$(find xbot_slam)/launch/include/move_base.launch.xml"/>
+  <!--  ************** Navigation  ***************  -->
+  <include file="$(find xbot_slam)/launch/include/move_base.launch.xml"/> 
 
-	<!-- give move base a goal -->
-	<node name="pub_goal" pkg="xbot_slam" type="pub_clicked_goal.py"/>
-	<!--  **************** Visualisation ****************  -->
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find xbot_slam)/rviz/xbot_slam.rviz" />
+
+  <!--  **************** Visualisation ****************  -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find xbot_slam)/rviz/xbot_slam.rviz" />
+
+  <!-- navi goals -->
+  <node name="navi_goals" pkg="xbot_navigoals" type="navigoals" output="screen">
+
+  </node>
 
 </launch>
