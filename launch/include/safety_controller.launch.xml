@@ -1,0 +1,8 @@
+<launch>
+	<!-- safety controller -->
+	<node pkg="nodelet" type="nodelet" name="navigation_safety_controller" args="load xbot_safety_controller/SafetyControllerNodelet mobile_base_nodelet_manager">
+		<remap from="navigation_safety_controller/cmd_vel"           to="cmd_vel_mux/input/safety_controller"/>
+		<remap from="navigation_safety_controller/events/bumper"     to="mobile_base/sensors/echo"/>
+		<remap from="navigation_safety_controller/events/cliff"      to="mobile_base/sensors/infrared"/>
+	</node>
+</launch>

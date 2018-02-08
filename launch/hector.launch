@@ -1,0 +1,24 @@
+<launch>
+	<!-- params configuration -->
+
+
+	<node name="hector_mapping" pkg="hector_mapping" type="hector_mapping">
+		<param name = "map_size"                            value = "1000" />
+		<param name = "map_resolution"                      value = "0.025" />
+		<param name = "map_start_x"                         value = "0.3" />
+		<param name = "map_start_y"                         value = "0.3" />
+		<param name = "map_update_distance_thresh"          value = "0.2" />
+		<param name = "map_update_angle_thresh"             value = "0.5" />
+		<param name = "map_pub_period"                      value = "1.0" />
+	</node>
+
+
+	<!--  ************** Navigation  ***************  -->
+	<include file="$(find xbot_slam)/launch/include/move_base.launch.xml"/>
+
+
+
+
+
+
+</launch>
